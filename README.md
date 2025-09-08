@@ -52,8 +52,6 @@ python inference.py --model ./pretrain/ANYWEIGHTSYOULIKE.pth --data_path PATH/TO
   journal={IEEE Transactions on Multimedia}, 
   title={Exploring Multi-feature Relationship in Retinex Decomposition for Low-light Image Enhancement}, 
   year={2025},
-  volume={},
-  number={},
   pages={1-14},
 ```
 
