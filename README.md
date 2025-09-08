@@ -60,6 +60,7 @@ python inference.py --model ./pretrain/LOLv1.pth --data_path ./dataset/ --output
   title={Exploring Multi-feature Relationship in Retinex Decomposition for Low-light Image Enhancement}, 
   year={2025},
   pages={1-14},
+}
 ```
 
 
