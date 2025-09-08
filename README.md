@@ -37,7 +37,7 @@ python evaluation.py --model ./pretrain/LOLv2Syn.pth --data_test LOLv2Syn --data
 python evaluation.py --model ./pretrain/SICE.pth --data_test SICE --data_path PATH/TO/SICE --output_path /results/SICE/ 
 ```
 
-## Evaluating on custom datasets
+## Inference on custom datasets
 
 You are free to try different weights and values of ```--alpha``` to improve enhancement performance. For instance, ```--alpha``` can be set to 0.1, 0.2, and so on.
 
