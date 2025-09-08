@@ -11,7 +11,7 @@ Please download pretrained weights and put them under ```/pretrain/```.
 
 [Google drive](https://drive.google.com/drive/folders/18-0KjvZ5V-nBQ5eDfKFdfmu2dPDUqWtl?usp=sharing) 
 
-## Datasets
+## Evaluation datasets
 
 [LOLv1](https://daooshee.github.io/BMVC2018website/)  [LOLv2](https://drive.google.com/file/d/1dzuLCk9_gE2bFF222n3-7GVUlSVHpMYC/view)  [LOLv2Syn](https://drive.google.com/file/d/1dzuLCk9_gE2bFF222n3-7GVUlSVHpMYC/view)  [SICE](https://drive.google.com/file/d/1gM3QeNDOCzx0m1gpOoQD1TnGv1BELy08/view)
 
