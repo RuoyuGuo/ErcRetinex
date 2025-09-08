@@ -43,6 +43,9 @@ You are free to try different weights and values of ```--alpha``` to improve enh
 
 ```
 python inference.py --model ./pretrain/ANYWEIGHTSYOULIKE.pth --data_path PATH/TO/DATASET --output_path PATH/TO/OUTPUT --alpha 0.08
+
+Example:
+python inference.py --model ./pretrain/LOLv1.pth --data_path ./dataset/ --output_path /results/LOLv1/ --alpha 0.08
 ```
 
 ## Citation
