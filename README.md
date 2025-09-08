@@ -6,6 +6,10 @@ Exploring multi-feature relationship in retinex decomposition for low-light imag
 
 * 08/2025: We release pretrain models and evaluation code. We also provide the code to compute $\sigma$ (noise level esitmation) in ```noise_est.py```
 
+## Environment
+
+We use ```torch 1.12.1```. For other libraries, the latest versions should work fine. This code should be compatible with most versions.
+
 ## Pretrain models
 Please download pretrained weights and put them under ```/pretrain/```.
 
