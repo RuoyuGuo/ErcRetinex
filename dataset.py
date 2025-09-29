@@ -10,8 +10,6 @@ from random import randrange
 import torchvision.transforms as transforms
 import torchvision.transforms.functional as F
 
-import pandas as pd
-
 
 def is_image_file(filename):
     return any(filename.endswith(extension) for extension in [".png", ".jpg", ".bmp", ".JPG", ".jpeg"])
@@ -70,3 +68,73 @@ class Inferset(data.Dataset):
         return lq_img, lq_name
 
 
+class TrainingDataset(data.Dataset):
+    def __init__(self, data_dir, crop_size):
+        self.data_dir = data_dir
+        self.crop_size = crop_size
+        self.data_name =  listdir(self.data_dir)
+
+    def transform(self, imgs):
+        # Random crop
+        i, j, h, w = transforms.RandomCrop.get_params(
+            imgs[0], output_size=(self.crop_size, self.crop_size))
+        
+        for idx, e in enumerate(imgs):
+            imgs[idx] = F.crop(e, i, j, h, w)
+
+        rotate_degree = random.randint(0,3) * 90
+        for idx, e in enumerate(imgs):
+            imgs[idx] = F.rotate(e, rotate_degree)
+
+        # Random horizontal flipping
+        if random.random() > 0.5:
+            for idx, e in enumerate(imgs):
+                imgs[idx] = F.hflip(e)
+
+        # Random vertical flipping
+        if random.random() > 0.5:
+            for idx, e in enumerate(imgs):
+                imgs[idx] = F.vflip(e)
+
+        # Transform to tensor
+        for idx, e in enumerate(imgs):
+            imgs[idx] = F.to_tensor(e)
+        return imgs
+
+    def __len__(self):
+        return len(listdir(self.data_dir))
+        
+    def __getitem__(self, index):
+        # img_path = join(self.data_dir, str(index+1))
+        img_path = join(self.data_dir, self.data_name[index])
+        img_list = [e for e in listdir(img_path) if is_image_file(e)]
+        num = len(img_list)
+        index1 = random.randint(1,num)
+        index2 = random.randint(1,num)
+        while abs(index1 - index2) == 0:
+            index2 = random.randint(1,num)
+
+        im1 = load_img(join(img_path, img_list[index1-1]))
+        im2 = load_img(join(img_path, img_list[index2-1]))
+
+        # #SICE data
+
+        
+        file1 = img_list[index1-1]
+        file2 = img_list[index2-1]
+
+        if '.JPG' in file1:
+            dataset_flag = 'SICE'
+        # #LOL data
+        else:
+            dataset_flag = 'LOL'
+
+        im1, im2 = self.transform([im1, im2])
+
+        data = {'im1': im1,
+                'im2': im2, 
+                'file1': file1,
+                'file2': file2,
+                'dataset_flag': dataset_flag,}
+        
+        return data 
