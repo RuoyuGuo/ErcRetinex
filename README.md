@@ -4,6 +4,7 @@ Exploring multi-feature relationship in retinex decomposition for low-light imag
 
 # Update
 
+* 09/2025: We update the training code. 
 * 08/2025: We release pretrain models and evaluation code. We also provide the code to compute $\sigma$ (noise level esitmation) in ```noise_est.py```
 
 ## Environment
@@ -51,6 +52,25 @@ python inference.py --model ./pretrain/ANYWEIGHTSYOULIKE.pth --data_path PATH/TO
 # Example
 python inference.py --model ./pretrain/LOLv1.pth --data_path ./dataset/ --output_path /results/LOLv1/ --alpha 0.08
 ```
+
+
+## Training dataset
+
+Please download the training set (PairLIE-training-dataset) from [PairLIE](https://github.com/zhenqifu/PairLIE) and place it in the current working directory.
+
+## Training 
+
+We found that two-stage training yields better results.
+
+```
+# Training in a single stage, use Reflectance Enhancement Loss at all times.
+python train_singlestage.py --data_train ./PairLIE-training-dataset/
+
+# Training in two stages, use Reflectance Enhancement Loss only in the second stage.
+python trainS1.py --data_train ./PairLIE-training-dataset/
+python trainS2.py --data_train ./PairLIE-training-dataset/ --resume ./weights/epoch_300.pth
+```
+
 
 ## Citation
 ```
