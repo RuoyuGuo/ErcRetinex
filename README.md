@@ -4,7 +4,7 @@ Exploring multi-feature relationship in retinex decomposition for low-light imag
 
 # Update
 
-* 05/2025: We have uploaded the paper (ErcRetinex.pdf) to this repo.
+* 05/2026: We have uploaded the paper (ErcRetinex.pdf) to this repo.
 * 09/2025: We have released the training code. 
 * 08/2025: We have released pretrain models and evaluation code. We also provide the code to compute $\sigma$ (noise level esitmation) in ```noise_est.py```
 
