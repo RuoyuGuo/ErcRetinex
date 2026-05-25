@@ -12,7 +12,7 @@ Exploring multi-feature relationship in retinex decomposition for low-light imag
 
 We use ```torch 1.12.1```. For other libraries, the latest versions should work fine. This code should be compatible with most versions.
 
-## Pretrain models
+## Pretrained models
 Please download pretrained weights and put them under ```/pretrain/```.
 
 [Google drive](https://drive.google.com/drive/folders/18-0KjvZ5V-nBQ5eDfKFdfmu2dPDUqWtl?usp=sharing) 
